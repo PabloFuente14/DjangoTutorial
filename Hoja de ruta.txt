@@ -1,0 +1,35 @@
+1. Instalar todo lo necesario para desarrollar en local
+
+    python con django
+    nodejs como motor del frontend
+    si usaramos postgres o mysql, instalar el motor de base de datos
+    (en local usaremos sqlite por facilidad)
+
+2. Crear dos proyectos
+    2.1 Frontend 
+        basado en angular v18
+
+    2.2 Backend
+        basado en django, y incluirmos django rest framework
+
+3. Crear dos repositorios en github y conectar esos proyectos a los repositorios
+
+4. Modelo de datos, una version inicial medio completa (GASTAR BASTANTE TIEMPO)
+
+    usuario     rol                 funcionalidades
+    pepito      ADMIN, GESTOR       crear_herramienta, ver_herramienta
+    juanito     GESTOR              ver_herramienta
+    diego       NORMAL              acceder
+
+5. Preparar un sistema de api con autenticacion JWT.
+    Un endpoint para registrarme
+    Un endpoint para logearme
+    Un endpoint publico
+    Un endpoint privado
+
+6. Desde el frontend implementar las llamadas a las cosas del paso 5
+7. Testing automatico (pruebas unitarias en django)
+8. CI/CD (Opcional pero recomendable) Continuous Integration / Continuous Delivery
+
+9. Despliegue (en un vps)
+10. Uso de contenedores
