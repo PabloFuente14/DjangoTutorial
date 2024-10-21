@@ -28,6 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+INTERNAL_IPS = ["127.0.0.1"]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,7 +43,10 @@ INSTALLED_APPS = [
     
 ]
 
+
+
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -50,6 +55,22 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+
+#disable debug toolbar when testing
+import sys
+
+TESTING = "test" in sys.argv
+if not TESTING:
+    
+    INSTALLED_APPS = [
+        *INSTALLED_APPS,  # Keeps the existing apps
+        "debug_toolbar",  # Adds Debug Toolbar to installed apps
+    ]
+    MIDDLEWARE = [
+        "debug_toolbar.middleware.DebugToolbarMiddleware",  # Adds the Debug Toolbar middleware
+        *MIDDLEWARE,  # Keeps existing middlewares
+    ]
 
 ROOT_URLCONF = "mysite.urls"
 
