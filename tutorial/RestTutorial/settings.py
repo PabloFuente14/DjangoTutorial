@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+#including rest_framework
 INSTALLED_APPS = [
     "rest_framework",
     "django.contrib.admin",
